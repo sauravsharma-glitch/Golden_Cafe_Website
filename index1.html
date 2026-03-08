@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Spoon Cafe | Mathura's Finest Restro & Hookah Bar</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Elegant & Modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2; /* Soft cream */
+            color: #2c2c2c;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ----- NAVBAR (luxury gold & black) ----- */
+        .navbar {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid #b48c4c;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid #b48c4c;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .logo img:hover { transform: rotate(8deg) scale(1.1); }
+
+        .logo-text h2 {
+            color: #e4c580;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 #3a2c0f;
+        }
+
+        .logo-text p {
+            color: #d4c5a5;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #f0e6d2;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 40px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a i { font-size: 1rem; color: #b48c4c; }
+
+        .nav-links a:hover {
+            background: #b48c4c;
+            color: #1a1a1a;
+            border-color: #e9d29a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(180, 140, 76, 0.4);
+        }
+        .nav-links a:hover i { color: #1a1a1a; }
+
+        .wa-nav-btn {
+            background: #b48c4c;
+            color: #1a1a1a !important;
+            font-weight: 700;
+            border: 2px solid #e9d29a;
+        }
+        .wa-nav-btn:hover { background: #d4af37 !important; }
+
+        .mobile-menu-btn {
+            display: none;
+            color: #e4c580;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* ----- container ----- */
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px 24px; }
+
+        /* ----- HEADER (moody cafe atmosphere) ----- */
+        header {
+            position: relative;
+            background: 
+                linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 70%),
+                url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 140px 20px;
+            border-radius: 30px 30px 30px 30px;
+            margin-bottom: 50px;
+            border: 3px solid #b48c4c;
+            box-shadow: 0 25px 35px -8px #2c2c2c;
+            transition: 0.4s;
+        }
+        header:hover { box-shadow: 0 30px 45px -5px #b48c4c; }
+
+        header h1 {
+            font-size: 5.5rem;
+            color: #f5e7c8;
+            text-shadow: 5px 5px 0 #3a2c0f, 8px 8px 15px black;
+            margin-bottom: 15px;
+            animation: fadeGlow 1.4s;
+        }
+        @keyframes fadeGlow {
+            0% { opacity: 0; text-shadow: 0 0 0 #b48c4c; }
+            100% { opacity: 1; text-shadow: 5px 5px 0 #3a2c0f; }
+        }
+
+        header p { font-size: 1.6rem; font-weight: 400; backdrop-filter: blur(3px); padding: 0 10px; }
+
+        .header-buttons { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 50px;
+            background: linear-gradient(145deg, #b48c4c, #8a693a);
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 0 #4f3a1f, 0 8px 25px black;
+            transition: all 0.15s;
+            border: 2px solid #e9d29a;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 0 #4f3a1f, 0 14px 25px #b48c4c;
+        }
+        .btn-wa { background: linear-gradient(145deg, #25D366, #128C7E); border-color: #dcf8c5; color: white; box-shadow: 0 10px 0 #0e5c4b; }
+
+        /* ----- section cards (light & airy) ----- */
+        .section {
+            background: rgba(255, 252, 245, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 40px;
+            padding: 50px 45px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.15);
+            border: 2px solid rgba(180, 140, 76, 0.3);
+            transition: 0.3s;
+        }
+        .section:hover {
+            background: #fffdf7;
+            border-color: #b48c4c;
+            box-shadow: 0 25px 40px -10px #b48c4c;
+        }
+
+        .section h2 {
+            color: #3a2c0f;
+            font-size: 3rem;
+            border-bottom: 3px dashed #b48c4c;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* info cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .info-card {
+            background: #f5efe3;
+            padding: 30px 20px;
+            border-radius: 40px;
+            text-align: center;
+            border: 2px solid #e9d29a;
+            box-shadow: inset 0 -4px 0 #b48c4c, 0 15px 0 #c2a15b;
+            transition: 0.2s;
+        }
+        .info-card i { font-size: 3rem; color: #b48c4c; text-shadow: 2px 2px 0 #f5e7c8; }
+        .info-card:hover { background: #f7e9d3; transform: translateY(-5px); }
+
+        /* ----- menu cards (golden hue) ----- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+        .menu-card {
+            background: #fefcf6;
+            padding: 30px 20px 25px;
+            border-radius: 50px 50px 50px 50px;
+            text-align: center;
+            box-shadow: 0 15px 0 #b48c4c, 0 20px 25px -10px #2c2c2c;
+            border: 2px solid white;
+            transition: 0.2s;
+            position: relative;
+        }
+        .menu-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 8px 0 #b48c4c, 0 30px 30px -8px #a67c45;
+            background: #fff9ed;
+        }
+        .menu-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #b48c4c;
+            color: #1a1a1a;
+            font-weight: 800;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            border: 2px solid #e9d29a;
+        }
+        .menu-icon { font-size: 3.8rem; margin-bottom: 10px; }
+        .menu-card h3 { font-size: 2rem; color: #2c2c2c; }
+        .menu-desc { color: #5a4a32; min-height: 60px; }
+        .menu-price { font-size: 2.2rem; font-weight: 700; color: #b48c4c; margin: 15px 0; text-shadow: 1px 1px 0 white; }
+
+        .order-wa-btn {
+            background: linear-gradient(145deg, #b48c4c, #8a693a);
+            border: none;
+            color: #1a1a1a;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 0 #4f3a1f;
+            transition: 0.1s;
+            font-size: 1.1rem;
+            border: 2px solid #e9d29a;
+        }
+        .order-wa-btn:hover { transform: scale(1.02) translateY(-4px); box-shadow: 0 6px 0 #4f3a1f; background: #d4af37; }
+
+        /* ----- hookah / cafe special contact block (gold shimmer) ----- */
+        .wa-contact-section {
+            background: linear-gradient(125deg, #2b2b2b, #1f1b14, #3a2c0f);
+            border-radius: 70px 70px 70px 70px;
+            padding: 70px 20px;
+            color: #f5e7c8;
+            text-align: center;
+            border: 4px solid #b48c4c;
+            margin: 60px 0;
+            box-shadow: 0 30px 0 #0f0e0b;
+        }
+        .wa-contact-section h3 { font-size: 3.5rem; color: #e9d29a; }
+        .wa-number {
+            background: #b48c4c;
+            color: #1a1a1a;
+            padding: 16px 50px;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 800;
+            display: inline-block;
+            border: 3px solid #e4c580;
+            margin: 20px 0;
+        }
+        .direct-wa-btn {
+            background: #b48c4c;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 22px 80px;
+            border-radius: 80px;
+            font-size: 2rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            border: 4px solid #f5e7c8;
+            transition: 0.2s;
+        }
+        .direct-wa-btn:hover { background: #25D366; color: white; border-color: white; transform: scale(1.05); }
+
+        /* map embed */
+        .map-embed { border: 5px solid #b48c4c; border-radius: 40px; }
+
+        footer { text-align: center; padding: 30px; color: #5a4a32; a { color: #b48c4c; } }
+
+        /* responsive */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2b2b2b;
+                padding: 25px;
+                border-bottom: 3px solid #b48c4c;
+            }
+            header h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Golden Spoon Cafe">
+                <div class="logo-text">
+                    <h2>Golden Spoon</h2>
+                    <p>CAFE · RESTO · HOOKAH</p>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="#offers"><i class="fas fa-tags"></i> Offers</a>
+                <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+                <a href="https://wa.me/917500538556" class="wa-nav-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header id="home">
+            <h1>Golden Spoon</h1>
+            <p><i class="fas fa-map-pin"></i> Bhuteshwar Rd, Geeta Enclave, Mathura (near landmark)</p>
+            <p>✨ best cafe · restro · hookah bar in mathura ✨</p>
+            <div class="header-buttons">
+                <a href="#menu" class="btn"><i class="fas fa-martini-glass-citrus"></i> explore menu</a>
+                <a href="https://wa.me/917500538556" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> whatsapp order</a>
+            </div>
+        </header>
+
+        <!-- INFO section (placeholder - replace with actual Golden Spoon details) -->
+        <section class="section">
+            <h2><i class="fas fa-info-circle"></i> The Golden Experience</h2>
+            <div class="info-grid">
+                <div class="info-card"><i class="fas fa-map-marker-alt"></i><h3>📍 address</h3><p>Bhuteshwar Rd, Geeta Enclave<br>Mathura, UP 281001</p><a href="#" style="color:#b48c4c;">Google Maps →</a></div>
+                <div class="info-card"><i class="fas fa-clock"></i><h3>🕒 hours</h3><p><strong>11:00 AM – 12:00 AM</strong><br>Sunday–Saturday</p></div>
+                <div class="info-card"><i class="fas fa-phone-alt"></i><h3>📞 contact</h3><p>+91 98765 43210<br>goldenspoonmathura.in</p></div>
+            </div>
+        </section>
+
+        <!-- MENU section (example items for a cafe/restro/hookah bar) -->
+        <section class="section" id="menu">
+            <h2><i class="fas fa-utensils"></i> signature delights</h2>
+
+            <h3 style="color:#b48c4c; font-size:2.5rem; margin-top: 30px;">🍽️ kitchen favorites</h3>
+            <div class="menu-grid">
+                <div class="menu-card" onclick="orderViaWhatsApp('Sizzler Platter', 449)">
+                    <span class="menu-badge">chef's special</span>
+                    <div class="menu-icon">🔥</div>
+                    <h3>Sizzler Platter</h3>
+                    <p class="menu-desc">sizzling veggies / paneer / chicken with noodles & sauce</p>
+                    <div class="menu-price">₹449</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Sizzler Platter', 449)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Peri-Peri Pasta', 299)">
+                    <div class="menu-icon">🍝</div>
+                    <h3>Peri-Peri Pasta</h3>
+                    <p class="menu-desc">white/red sauce with peri-peri sprinkle</p>
+                    <div class="menu-price">₹299</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Peri-Peri Pasta', 299)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Classic Cheeseburger', 249)">
+                    <div class="menu-icon">🍔</div>
+                    <h3>Classic Cheeseburger</h3>
+                    <p class="menu-desc">with crispy bacon & caramelized onions</p>
+                    <div class="menu-price">₹249</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Classic Cheeseburger', 249)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Mexican Tacos (3pcs)', 329)">
+                    <span class="menu-badge">crispy</span>
+                    <div class="menu-icon">🌮</div>
+                    <h3>Mexican Tacos (3pcs)</h3>
+                    <p class="menu-desc">salsa, cheese, and spicy beans</p>
+                    <div class="menu-price">₹329</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Mexican Tacos (3pcs)', 329)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+            </div>
+
+            <h3 style="color:#b48c4c; font-size:2.5rem; margin-top: 60px;">🍕 woodfire pizzas</h3>
+            <div class="menu-grid">
+                <div class="menu-card" onclick="orderViaWhatsApp('Golden Special Pizza', 599)">
+                    <span class="menu-badge">best seller</span>
+                    <div class="menu-icon">🍕</div>
+                    <h3>Golden Special</h3>
+                    <p class="menu-desc">loaded with 5 toppings & extra cheese</p>
+                    <div class="menu-price">₹599</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Golden Special Pizza', 599)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Margherita Pizza', 399)">
+                    <div class="menu-icon">🍕</div>
+                    <h3>Margherita</h3>
+                    <p class="menu-desc">fresh basil, mozzarella, tomato sauce</p>
+                    <div class="menu-price">₹399</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Margherita Pizza', 399)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Tandoori Chicken Pizza', 549)">
+                    <span class="menu-badge">smoky</span>
+                    <div class="menu-icon">🍕</div>
+                    <h3>Tandoori Chicken</h3>
+                    <p class="menu-desc">tandoori chicken chunks, onion, capsicum</p>
+                    <div class="menu-price">₹549</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Tandoori Chicken Pizza', 549)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+            </div>
+
+            <h3 style="color:#b48c4c; font-size:2.5rem; margin-top: 60px;">🍜 hookah flavors</h3>
+            <div class="menu-grid">
+                <div class="menu-card" onclick="orderViaWhatsApp('Double Apple Hookah', 399)">
+                    <div class="menu-icon">💨</div>
+                    <h3>Double Apple</h3>
+                    <p class="menu-desc">classic strong mint mix</p>
+                    <div class="menu-price">₹399</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Double Apple Hookah', 399)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Blueberry Mint', 449)">
+                    <span class="menu-badge">popular</span>
+                    <div class="menu-icon">💨</div>
+                    <h3>Blueberry Mint</h3>
+                    <p class="menu-desc">refreshing berry + mint</p>
+                    <div class="menu-price">₹449</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Blueberry Mint', 449)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+                <div class="menu-card" onclick="orderViaWhatsApp('Paani Ka Hookah', 299)">
+                    <div class="menu-icon">💧</div>
+                    <h3>Paani (Non-Flavor)</h3>
+                    <p class="menu-desc">traditional, no tobacco</p>
+                    <div class="menu-price">₹299</div>
+                    <button class="order-wa-btn" onclick="event.stopPropagation(); orderViaWhatsApp('Paani Ka Hookah', 299)"><i class="fab fa-whatsapp"></i> order</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp direct order -->
+        <div class="wa-contact-section" id="offers">
+            <i class="fab fa-whatsapp" style="font-size: 6rem; color:#e9d29a;"></i>
+            <h3>order via whatsapp</h3>
+            <div class="wa-number"><i class="fab fa-whatsapp"></i> +91 98765 43210</div>
+            <div style="margin-top: 40px;">
+                <a href="https://wa.me/919876543210" class="direct-wa-btn" target="_blank"><i class="fab fa-whatsapp"></i> START ORDER</a>
+            </div>
+        </div>
+
+        <!-- LOCATION (use the actual coordinates from your link) -->
+        <section class="section" id="contact">
+            <h2><i class="fas fa-map-marked-alt"></i> visit golden spoon</h2>
+            <p style="margin-bottom: 20px;"><strong>📍 Bhuteshwar Rd, Geeta Enclave, Mathura (near landmark)</strong></p>
+            <!-- embedded map with the coordinates from the link (27.4942093,77.6559031) -->
+            <iframe class="map-embed" style="width:100%; height:420px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.874891234567!2d77.6559031!3d27.4942093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397371d971601653%3A0xfc844449e54801f6!2sGolden%20spoon%20cafe%20%26%20restro%20%7C%20Best%20Cafe%20in%20Mathura%20%7C%20Best%20Restro%20in%20Mathura%20%7C%20Best%20Hukka%20Bar%20in%20Mathura!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <footer>
+            <p>© 2025 Golden Spoon Cafe & Restro, Mathura. all rights reserved</p>
+            <p><a href="#">privacy</a> | <a href="#">terms</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+
+        function orderViaWhatsApp(itemName, price) {
+            const phone = '919876543210'; // Replace with actual Golden Spoon WhatsApp number
+            const msg = `Hello Golden Spoon, I'd like to order:%0A%0A• ${itemName} - ₹${price}%0A%0APlease confirm.`;
+            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
